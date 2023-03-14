@@ -1,0 +1,2831 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{817901EE-7A31-43C6-B68E-0F4E4E6A920B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Schulexx</RootNamespace>
+    <AssemblyName>Schulexx</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bunifu_UI_v1.52, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="CryptoLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CryptoLib.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Windows\assembly\GAC_MSIL\Microsoft.ReportViewer.WinForms\11.0.0.0__89845dcd8080cc91\Microsoft.ReportViewer.WinForms.DLL</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.8\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data.Entity, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.dll</HintPath>
+    </Reference>
+    <Reference Include="ObjectListView">
+      <HintPath>..\packages\ObjectListView.Official.2.9.1\lib\net20\ObjectListView.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClassUI\ClassStreamsConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClassUI\ClassStreamsConfig.Designer.cs">
+      <DependentUpon>ClassStreamsConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClassUI\FrmArchiveStudents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClassUI\FrmArchiveStudents.Designer.cs">
+      <DependentUpon>FrmArchiveStudents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClassUI\FrmClassSubjectsAL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClassUI\FrmClassSubjectsAL.Designer.cs">
+      <DependentUpon>FrmClassSubjectsAL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClassUI\FrmClassSubjectsOL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClassUI\FrmClassSubjectsOL.Designer.cs">
+      <DependentUpon>FrmClassSubjectsOL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClassUI\TransferStudsFromStreamToStream.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClassUI\TransferStudsFromStreamToStream.Designer.cs">
+      <DependentUpon>TransferStudsFromStreamToStream.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClassUI\UcStudentStreamAssign.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ClassUI\UcStudentStreamAssign.Designer.cs">
+      <DependentUpon>UcStudentStreamAssign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Access_levels.cs" />
+    <Compile Include="Code\Admissions.cs" />
+    <Compile Include="Code\Alertreminders.cs" />
+    <Compile Include="Code\Alevel_agg_settings.cs" />
+    <Compile Include="Code\Alevel_gsettings.cs" />
+    <Compile Include="Code\Allowances.cs" />
+    <Compile Include="Code\Books.cs" />
+    <Compile Include="Code\Books_takenbystaff.cs" />
+    <Compile Include="Code\Books_takenbystuds.cs" />
+    <Compile Include="Code\Book_copies.cs" />
+    <Compile Include="Code\Classes.cs" />
+    <Compile Include="Code\Class_enrollments.cs" />
+    <Compile Include="Code\Class_heads.cs" />
+    <Compile Include="Code\Class_streams.cs" />
+    <Compile Include="Code\Departments.cs" />
+    <Compile Include="Code\Department_allocations.cs" />
+    <Compile Include="Code\Department_heads.cs" />
+    <Compile Include="Code\Division_settings.cs" />
+    <Compile Include="Code\Dormitry.cs" />
+    <Compile Include="Code\Dormitry_allocations.cs" />
+    <Compile Include="Code\Exams.cs" />
+    <Compile Include="Code\Exam_session_settings.cs" />
+    <Compile Include="Code\Exam_term_settings.cs" />
+    <Compile Include="Code\Expulsion.cs" />
+    <Compile Include="Code\Fees_payments.cs" />
+    <Compile Include="Code\Fees_structure.cs" />
+    <Compile Include="Code\FiredStaff.cs" />
+    <Compile Include="Code\func_requirements.cs" />
+    <Compile Include="Code\Olevel_gsettings.cs" />
+    <Compile Include="Code\Hods.cs" />
+    <Compile Include="Code\Levels.cs" />
+    <Compile Include="Code\Mdd.cs" />
+    <Compile Include="Code\Olevel_rankings.cs" />
+    <Compile Include="Code\Olevel_rankingsDataAdapter.cs" />
+    <Compile Include="Code\Parents.cs" />
+    <Compile Include="Code\Passouts.cs" />
+    <Compile Include="Code\Ps_realations.cs" />
+    <Compile Include="Code\Exam_results.cs" />
+    <Compile Include="Code\Books_returned.cs" />
+    <Compile Include="Code\Results.cs" />
+    <Compile Include="Code\Results_alevel.cs" />
+    <Compile Include="Code\Study_section.cs" />
+    <Compile Include="Code\Subject_category.cs" />
+    <Compile Include="Code\Subject_class_papers.cs" />
+    <Compile Include="Code\Subject_enrolmentsalevel.cs" />
+    <Compile Include="Code\Subject_papers_alevel.cs" />
+    <Compile Include="Code\Teacher_allocation_alevel.cs" />
+    <Compile Include="Code\Term_ct_commentsolevel.cs" />
+    <Compile Include="Code\Term_ct_comments_alevel.cs" />
+    <Compile Include="Code\Term_ht_commentsolevel.cs" />
+    <Compile Include="Code\Term_ht_comments_alevel.cs" />
+    <Compile Include="Code\Term_session_ct_commentsolevel.cs" />
+    <Compile Include="Code\Term_session_ht_commentsolevel.cs" />
+    <Compile Include="ConfigureUI\CurrentTermAndAcademicYear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigureUI\CurrentTermAndAcademicYear.Designer.cs">
+      <DependentUpon>CurrentTermAndAcademicYear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigureUI\FrmContinents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigureUI\FrmContinents.Designer.cs">
+      <DependentUpon>FrmContinents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigureUI\FrmCountries.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigureUI\FrmCountries.Designer.cs">
+      <DependentUpon>FrmCountries.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigureUI\FrmDefaultCurrency.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigureUI\FrmDefaultCurrency.Designer.cs">
+      <DependentUpon>FrmDefaultCurrency.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigureUI\FrmDistricts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigureUI\FrmDistricts.Designer.cs">
+      <DependentUpon>FrmDistricts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigureUI\FrmGuardianRelationships.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigureUI\FrmGuardianRelationships.Designer.cs">
+      <DependentUpon>FrmGuardianRelationships.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigureUI\FrmPaymodes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigureUI\FrmPaymodes.Designer.cs">
+      <DependentUpon>FrmPaymodes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigureUI\FrmRegions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigureUI\FrmRegions.Designer.cs">
+      <DependentUpon>FrmRegions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigureUI\FrmSchoolJobs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigureUI\FrmSchoolJobs.Designer.cs">
+      <DependentUpon>FrmSchoolJobs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigureUI\FrmTribes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigureUI\FrmTribes.Designer.cs">
+      <DependentUpon>FrmTribes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigureUI\StudyTerms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigureUI\StudyTerms.Designer.cs">
+      <DependentUpon>StudyTerms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AlevelTeachersComments.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\AlevelTeachersComments.Designer.cs">
+      <DependentUpon>AlevelTeachersComments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BookSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\BookSearch.Designer.cs">
+      <DependentUpon>BookSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ClassWiseResults.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ClassWiseResults.Designer.cs">
+      <DependentUpon>ClassWiseResults.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ClassWiseResultsAlevel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ClassWiseResultsAlevel.Designer.cs">
+      <DependentUpon>ClassWiseResultsAlevel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FeesCollection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\FeesCollection.Designer.cs">
+      <DependentUpon>FeesCollection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MontiorAttendance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MontiorAttendance.Designer.cs">
+      <DependentUpon>MontiorAttendance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NewAdmission.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\NewAdmission.Designer.cs">
+      <DependentUpon>NewAdmission.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NewLibrary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\NewLibrary.Designer.cs">
+      <DependentUpon>NewLibrary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NewStudent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\NewStudent.Designer.cs">
+      <DependentUpon>NewStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\OlevelTeachers_comments.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\OlevelTeachers_comments.Designer.cs">
+      <DependentUpon>OlevelTeachers_comments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ParentsContacts.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ParentsContacts.Designer.cs">
+      <DependentUpon>ParentsContacts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SchoolFees.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SchoolFees.Designer.cs">
+      <DependentUpon>SchoolFees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SearchNonteachers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SearchNonteachers.Designer.cs">
+      <DependentUpon>SearchNonteachers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SearchParents.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SearchParents.Designer.cs">
+      <DependentUpon>SearchParents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SearchStudents.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SearchStudents.Designer.cs">
+      <DependentUpon>SearchStudents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SearchTeachers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SearchTeachers.Designer.cs">
+      <DependentUpon>SearchTeachers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\StudentClass_enroll.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\StudentClass_enroll.Designer.cs">
+      <DependentUpon>StudentClass_enroll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SubjectAssign.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SubjectAssign.Designer.cs">
+      <DependentUpon>SubjectAssign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SubjectsAssignAlevel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SubjectsAssignAlevel.Designer.cs">
+      <DependentUpon>SubjectsAssignAlevel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ViewEditfees.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ViewEditfees.Designer.cs">
+      <DependentUpon>ViewEditfees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ViewEditnonTeachingstaff.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ViewEditnonTeachingstaff.Designer.cs">
+      <DependentUpon>ViewEditnonTeachingstaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ViewEditparents.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ViewEditparents.Designer.cs">
+      <DependentUpon>ViewEditparents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ViewEditstudents.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ViewEditstudents.Designer.cs">
+      <DependentUpon>ViewEditstudents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ViewEditteachers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ViewEditteachers.Designer.cs">
+      <DependentUpon>ViewEditteachers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExamUI\ExternalExamsUI\FrmExternalexaminingBodies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExamUI\ExternalExamsUI\FrmExternalexaminingBodies.Designer.cs">
+      <DependentUpon>FrmExternalexaminingBodies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExamUI\ExternalExamsUI\NewExternalExam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExamUI\ExternalExamsUI\NewExternalExam.Designer.cs">
+      <DependentUpon>NewExternalExam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExamUI\ExternalExamsUI\UCExternalExamsMarkEntryAL.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExamUI\ExternalExamsUI\UCExternalExamsMarkEntryAL.Designer.cs">
+      <DependentUpon>UCExternalExamsMarkEntryAL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExamUI\ExternalExamsUI\UCExternalExamsMarkEntryOL.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExamUI\ExternalExamsUI\UCExternalExamsMarkEntryOL.Designer.cs">
+      <DependentUpon>UCExternalExamsMarkEntryOL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtrasUI\DisciplineUI\FrmOffensesCategories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExtrasUI\DisciplineUI\FrmOffensesCategories.Designer.cs">
+      <DependentUpon>FrmOffensesCategories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtrasUI\DormMgtUI\DormStudLeaders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExtrasUI\DormMgtUI\DormStudLeaders.Designer.cs">
+      <DependentUpon>DormStudLeaders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtrasUI\SMS\FrmContactGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExtrasUI\SMS\FrmContactGroup.Designer.cs">
+      <DependentUpon>FrmContactGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtrasUI\SMS\FrmMessageCategories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExtrasUI\SMS\FrmMessageCategories.Designer.cs">
+      <DependentUpon>FrmMessageCategories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtrasUI\SMS\UCscheduleSms.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExtrasUI\SMS\UCscheduleSms.Designer.cs">
+      <DependentUpon>UCscheduleSms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtrasUI\SMS\UCsendSMS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExtrasUI\SMS\UCsendSMS.Designer.cs">
+      <DependentUpon>UCsendSMS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtrasUI\SMS\UCsmsReports.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExtrasUI\SMS\UCsmsReports.Designer.cs">
+      <DependentUpon>UCsmsReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtrasUI\SMS\UC_ManageContactList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExtrasUI\SMS\UC_ManageContactList.Designer.cs">
+      <DependentUpon>UC_ManageContactList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtrasUI\StudLeadershipUI\FrmStudLeadershipTitles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExtrasUI\StudLeadershipUI\FrmStudLeadershipTitles.Designer.cs">
+      <DependentUpon>FrmStudLeadershipTitles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtrasUI\StudLeadershipUI\UCstudentCertificates.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExtrasUI\StudLeadershipUI\UCstudentCertificates.Designer.cs">
+      <DependentUpon>UCstudentCertificates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddingStudentsAdmission.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddingStudentsAdmission.Designer.cs">
+      <DependentUpon>AddingStudentsAdmission.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AdminSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AdminSettings.Designer.cs">
+      <DependentUpon>AdminSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AllocateTeachersAlevel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AllocateTeachersAlevel.Designer.cs">
+      <DependentUpon>AllocateTeachersAlevel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AssignSubjects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AssignSubjects.Designer.cs">
+      <DependentUpon>AssignSubjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AssignSubjectsAlevel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AssignSubjectsAlevel.Designer.cs">
+      <DependentUpon>AssignSubjectsAlevel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BasicSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BasicSettings.Designer.cs">
+      <DependentUpon>BasicSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BookDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BookDetails.Designer.cs">
+      <DependentUpon>BookDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ChangeLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChangeLogin.Designer.cs">
+      <DependentUpon>ChangeLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ClassEnrollment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ClassEnrollment.Designer.cs">
+      <DependentUpon>ClassEnrollment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Config_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\Config_Form.Designer.cs">
+      <DependentUpon>Config_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ExpertSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ExpertSettings.Designer.cs">
+      <DependentUpon>ExpertSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GeneralStaff_leaders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GeneralStaff_leaders.Designer.cs">
+      <DependentUpon>GeneralStaff_leaders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reminders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Reminders.Designer.cs">
+      <DependentUpon>Reminders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReturnBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReturnBook.Designer.cs">
+      <DependentUpon>ReturnBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Schulex Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Schulex Dashboard.Designer.cs">
+      <DependentUpon>Schulex Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigureUI\StudySections.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigureUI\StudySections.Designer.cs">
+      <DependentUpon>StudySections.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StudyTerm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StudyTerm.Designer.cs">
+      <DependentUpon>StudyTerm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TeacherSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TeacherSubject.Designer.cs">
+      <DependentUpon>TeacherSubject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserAction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserAction.Designer.cs">
+      <DependentUpon>UserAction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ViewMyProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ViewMyProfile.Designer.cs">
+      <DependentUpon>ViewMyProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\access_levels.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\access_level_menu.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\alevel_agg_settings.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\alevel_gsettings.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\archived_staff.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\archived_student.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\candidate_classes.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\class.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\class_enrollments.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\class_streams.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\class_teacher_leaders.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\continent.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\country.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\currency.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DbConnect.cs" />
+    <Compile Include="Model\department.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\department_allocations.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\department_heads.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\districts_uganda.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\division_settings.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\dormitry.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\dormitry_allocations.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\exam_session.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\exam_session_comments.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\exam_session_rankings.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\exam_session_rankings_alevel.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\exam_session_results_papers.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\exam_session_results_papers_alevel.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\exam_session_results_subjects.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\exam_session_results_subjects_alevel.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\exam_session_settings.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\exam_terms.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\exam_term_comments.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\exam_term_rankings.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\exam_term_rankings_alevel.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\exam_term_results.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\exam_term_results_alevel.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\exam_term_results_papers_alevel.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\fees_config.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\fees_head.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\fees_invoice.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\fees_invoice_payments.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\fees_payments.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\fees_payment_mode.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\fees_structure.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\level.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\license_check.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\local_students_tribes.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\menu_master.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\next_term.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\olevel_gsettings.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\parent.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\parent_icard_info.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ps_relations.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\regions_uganda.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\religion.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\running_getpass_number.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\school_details.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\schulex_dbModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>schulex_dbModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\schulex_dbModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\schulex_dbModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>schulex_dbModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\staff.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\staff_icard_info.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\stream.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\student.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\studentleader.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\student_icard_info.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\student_leaders_certificate.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\student_sch_wallets_details.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\study_sections.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\study_terms.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\study_term_settings.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\subjects_alevel.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\subjects_olevel.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\subject_category.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\subject_enrolments_alevel.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\subject_enrolments_olevel.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\subject_papers_alevel.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\subject_papers_olevel.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\teacher_allocation_alevel.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\teacher_allocation_olevel.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tribe.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\user.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\user_activity_log.cs">
+      <DependentUpon>schulex_dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="My Account\frmChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Account\frmChangePassword.Designer.cs">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="My Account\UcDashboardSummary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="My Account\UcDashboardSummary.Designer.cs">
+      <DependentUpon>UcDashboardSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParentsUI\ManageParents.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ParentsUI\ManageParents.Designer.cs">
+      <DependentUpon>ManageParents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParentsUI\ParentGatePass.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ParentsUI\ParentGatePass.designer.cs">
+      <DependentUpon>ParentGatePass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParentsUI\ParentStudent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ParentsUI\ParentStudent.Designer.cs">
+      <DependentUpon>ParentStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtrasUI\Library\BookNew_Copy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExtrasUI\Library\BookNew_Copy.Designer.cs">
+      <DependentUpon>BookNew_Copy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExamUI\PerfCommentsAlevel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExamUI\PerfCommentsAlevel.Designer.cs">
+      <DependentUpon>PerfCommentsAlevel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParentsUI\ParentIDCrad.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ParentsUI\ParentIDCrad.designer.cs">
+      <DependentUpon>ParentIDCrad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParentsUI\Student_assignParent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ParentsUI\Student_assignParent.Designer.cs">
+      <DependentUpon>Student_assignParent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtrasUI\Library\NewBook_Copy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExtrasUI\Library\NewBook_Copy.Designer.cs">
+      <DependentUpon>NewBook_Copy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParentsUI\UcCreateParentsID.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ParentsUI\UcCreateParentsID.Designer.cs">
+      <DependentUpon>UcCreateParentsID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParentsUI\UCParentsIdHistory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ParentsUI\UCParentsIdHistory.Designer.cs">
+      <DependentUpon>UCParentsIdHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParentsUI\UCparentsVisitsHistory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ParentsUI\UCparentsVisitsHistory.Designer.cs">
+      <DependentUpon>UCparentsVisitsHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParentsUI\UCparentVisitsEntry.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ParentsUI\UCparentVisitsEntry.Designer.cs">
+      <DependentUpon>UCparentVisitsEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportData\ID\ParentIDDetails.cs" />
+    <Compile Include="ReportData\ID\StaffIDDetails.cs" />
+    <Compile Include="ReportData\ID\StudentIDDetails.cs" />
+    <Compile Include="StaffUI\FrmOperatingSchAdmins.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StaffUI\FrmOperatingSchAdmins.Designer.cs">
+      <DependentUpon>FrmOperatingSchAdmins.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StaffUI\ManageSchoolDirectors.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StaffUI\ManageSchoolDirectors.Designer.cs">
+      <DependentUpon>ManageSchoolDirectors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StaffUI\ManageStaff.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StaffUI\ManageStaff.Designer.cs">
+      <DependentUpon>ManageStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StaffUI\StaffIDCrad.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StaffUI\StaffIDCrad.designer.cs">
+      <DependentUpon>StaffIDCrad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StaffUI\Uc_activeStaffList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StaffUI\Uc_activeStaffList.Designer.cs">
+      <DependentUpon>Uc_activeStaffList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StaffUI\Uc_createStaffID.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StaffUI\Uc_createStaffID.Designer.cs">
+      <DependentUpon>Uc_createStaffID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StaffUI\UC_StaffIDHistory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StaffUI\UC_StaffIDHistory.Designer.cs">
+      <DependentUpon>UC_StaffIDHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentsUI\FrmBulkStudentsUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentsUI\FrmBulkStudentsUpdate.Designer.cs">
+      <DependentUpon>FrmBulkStudentsUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentsUI\ManageStudents.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StudentsUI\ManageStudents.Designer.cs">
+      <DependentUpon>ManageStudents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExamUI\PerfCommentsOlevel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExamUI\PerfCommentsOlevel.Designer.cs">
+      <DependentUpon>PerfCommentsOlevel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExamUI\ResultsClassWiseOlevel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExamUI\ResultsClassWiseOlevel.Designer.cs">
+      <DependentUpon>ResultsClassWiseOlevel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExamUI\ResultsClassWiseAlevel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExamUI\ResultsClassWiseAlevel.Designer.cs">
+      <DependentUpon>ResultsClassWiseAlevel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExamUI\ResultsStudentWiseOlevel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExamUI\ResultsStudentWiseOlevel.Designer.cs">
+      <DependentUpon>ResultsStudentWiseOlevel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StaffUI\SearchStaff.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StaffUI\SearchStaff.Designer.cs">
+      <DependentUpon>SearchStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StaffUI\SearchTeacher.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StaffUI\SearchTeacher.Designer.cs">
+      <DependentUpon>SearchTeacher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentsUI\StudentIDCrad.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StudentsUI\StudentIDCrad.designer.cs">
+      <DependentUpon>StudentIDCrad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentsUI\SearchStudent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StudentsUI\SearchStudent.Designer.cs">
+      <DependentUpon>SearchStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParentsUI\SearchParent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ParentsUI\SearchParent.Designer.cs">
+      <DependentUpon>SearchParent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExamUI\UCExamSelection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExamUI\UCExamSelection.Designer.cs">
+      <DependentUpon>UCExamSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Exam_term_settingsDataAdapter.cs" />
+    <Compile Include="Data\StudySectionDataAdapter.cs" />
+    <Compile Include="Data\Subject_class_papersDataAdapter.cs" />
+    <Compile Include="Data\Results_alevelDataAdapter.cs" />
+    <Compile Include="Code\School_details.cs" />
+    <Compile Include="Code\School_heads.cs" />
+    <Compile Include="Code\Staff.cs" />
+    <Compile Include="Code\StaffLeaves.cs" />
+    <Compile Include="Code\Staff_admins.cs" />
+    <Compile Include="Code\Staff_attendances.cs" />
+    <Compile Include="Code\Staff_payroll.cs" />
+    <Compile Include="Code\Stathletics_allocation.cs" />
+    <Compile Include="Code\Stchoir_allocation.cs" />
+    <Compile Include="Code\Stclub_allocations.cs" />
+    <Compile Include="Code\Studentathletics.cs" />
+    <Compile Include="Code\Studentleaders.cs" />
+    <Compile Include="Code\Students.cs" />
+    <Compile Include="Code\Student_attendances.cs" />
+    <Compile Include="Code\Studentclubs.cs" />
+    <Compile Include="Code\Student_signatures.cs" />
+    <Compile Include="Code\Subjects.cs" />
+    <Compile Include="Code\Subjects_alevel.cs" />
+    <Compile Include="Code\Subject_enrolments.cs" />
+    <Compile Include="Code\Suppliers.cs" />
+    <Compile Include="Code\Supplies.cs" />
+    <Compile Include="Code\Suspensions.cs" />
+    <Compile Include="Code\System_settings.cs" />
+    <Compile Include="Code\Teacher_allocation.cs" />
+    <Compile Include="Code\Timet_schedules.cs" />
+    <Compile Include="Code\Time_tableactivity.cs" />
+    <Compile Include="Code\Time_tables.cs" />
+    <Compile Include="Code\Users.cs" />
+    <Compile Include="Code\User_activity_log.cs" />
+    <Compile Include="Code\Week_days.cs" />
+    <Compile Include="ExamUI\ResultsStudentWiseAlevel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExamUI\ResultsStudentWiseAlevel.Designer.cs">
+      <DependentUpon>ResultsStudentWiseAlevel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Attendance\AllStudentsAttendanceReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Attendance\AllStudentsAttendanceReport.Designer.cs">
+      <DependentUpon>AllStudentsAttendanceReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtrasUI\Library\AvailableBooks.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExtrasUI\Library\AvailableBooks.Designer.cs">
+      <DependentUpon>AvailableBooks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtrasUI\Timetable\ExamTimeTable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExtrasUI\Timetable\ExamTimeTable.Designer.cs">
+      <DependentUpon>ExamTimeTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtrasUI\Library\HiredBooks.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExtrasUI\Library\HiredBooks.Designer.cs">
+      <DependentUpon>HiredBooks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Attendance\IndividualStaffAttendance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Attendance\IndividualStaffAttendance.Designer.cs">
+      <DependentUpon>IndividualStaffAttendance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Attendance\IndividualStudentsAttendance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Attendance\IndividualStudentsAttendance.Designer.cs">
+      <DependentUpon>IndividualStudentsAttendance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtrasUI\Library\IssueBookOutStaff.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExtrasUI\Library\IssueBookOutStaff.Designer.cs">
+      <DependentUpon>IssueBookOutStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtrasUI\Library\IssueBookOutStud.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExtrasUI\Library\IssueBookOutStud.Designer.cs">
+      <DependentUpon>IssueBookOutStud.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtrasUI\Library\NewBook.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExtrasUI\Library\NewBook.Designer.cs">
+      <DependentUpon>NewBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtrasUI\Library\ReturningAbook.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExtrasUI\Library\ReturningAbook.Designer.cs">
+      <DependentUpon>ReturningAbook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentsUI\SchoolAlumnis.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StudentsUI\SchoolAlumnis.Designer.cs">
+      <DependentUpon>SchoolAlumnis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Attendance\StaffAttendance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Attendance\StaffAttendance.Designer.cs">
+      <DependentUpon>StaffAttendance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Attendance\StaffAttendanceReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Attendance\StaffAttendanceReport.Designer.cs">
+      <DependentUpon>StaffAttendanceReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\StaffI-cardinfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\StaffI-cardinfo.Designer.cs">
+      <DependentUpon>StaffI-cardinfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Attendance\StudentAttendances.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Attendance\StudentAttendances.Designer.cs">
+      <DependentUpon>StudentAttendances.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtrasUI\Timetable\LessonsTimetable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExtrasUI\Timetable\LessonsTimetable.Designer.cs">
+      <DependentUpon>LessonsTimetable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StaffUI\NewStaff.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StaffUI\NewStaff.Designer.cs">
+      <DependentUpon>NewStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentsUI\UcCreateStudentID.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StudentsUI\UcCreateStudentID.Designer.cs">
+      <DependentUpon>UcCreateStudentID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentsUI\UcIdentityCardHistory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StudentsUI\UcIdentityCardHistory.Designer.cs">
+      <DependentUpon>UcIdentityCardHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentsUI\UcListOfActiveStudents.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StudentsUI\UcListOfActiveStudents.Designer.cs">
+      <DependentUpon>UcListOfActiveStudents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentsUI\UcListOfArchivedStudents.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StudentsUI\UcListOfArchivedStudents.Designer.cs">
+      <DependentUpon>UcListOfArchivedStudents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentsUI\UcStudentAdmissionLetters.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StudentsUI\UcStudentAdmissionLetters.Designer.cs">
+      <DependentUpon>UcStudentAdmissionLetters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentsUI\UCstudentsAdmissionsHistory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StudentsUI\UCstudentsAdmissionsHistory.Designer.cs">
+      <DependentUpon>UCstudentsAdmissionsHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentsUI\UcStudentsPhotos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StudentsUI\UcStudentsPhotos.Designer.cs">
+      <DependentUpon>UcStudentsPhotos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentsUI\UcStudPopSumary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StudentsUI\UcStudPopSumary.Designer.cs">
+      <DependentUpon>UcStudPopSumary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolsUI\BulkImportUIs\UcMarksEntryBulkImportXLui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ToolsUI\BulkImportUIs\UcMarksEntryBulkImportXLui.Designer.cs">
+      <DependentUpon>UcMarksEntryBulkImportXLui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolsUI\BulkImportUIs\UcParentsBulkImportXLui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ToolsUI\BulkImportUIs\UcParentsBulkImportXLui.Designer.cs">
+      <DependentUpon>UcParentsBulkImportXLui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolsUI\BulkImportUIs\UcStaffBulkImportXLui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ToolsUI\BulkImportUIs\UcStaffBulkImportXLui.Designer.cs">
+      <DependentUpon>UcStaffBulkImportXLui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolsUI\BulkImportUIs\UcStudentsBulkImportXLui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ToolsUI\BulkImportUIs\UcStudentsBulkImportXLui.Designer.cs">
+      <DependentUpon>UcStudentsBulkImportXLui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\NewUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User\NewUser.Designer.cs">
+      <DependentUpon>NewUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParentsUI\ParentsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ParentsUI\ParentsControl.Designer.cs">
+      <DependentUpon>ParentsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtrasUI\DisciplineUI\StudentsExpulsions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExtrasUI\DisciplineUI\StudentsExpulsions.Designer.cs">
+      <DependentUpon>StudentsExpulsions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Alevel_agg_settingsDataAdapter.cs" />
+    <Compile Include="Data\Division_settingsDataAdapter.cs" />
+    <Compile Include="Data\ResultsDataAdapter.cs" />
+    <Compile Include="Data\Subject_categoryDataAdapter.cs" />
+    <Compile Include="Data\Subject_enrolmentsalevelDataAdapter.cs" />
+    <Compile Include="Data\Subject_papers_alevelDataAdapter.cs" />
+    <Compile Include="Data\Teacher_allocation_alevelDataAdapter.cs" />
+    <Compile Include="EFHelper\ExamDetails.cs" />
+    <Compile Include="EFHelper\ExamHelper.cs" />
+    <Compile Include="EFHelper\ExamMarkHelper.cs" />
+    <Compile Include="EFHelper\StudentDetails.cs" />
+    <Compile Include="EFHelper\StudentSubjectPapers.cs" />
+    <Compile Include="EFHelper\SubjectDetails.cs" />
+    <Compile Include="ErrorHandling\ErrorHelper.cs" />
+    <Compile Include="ExamUI\DAL\ALExamComment.cs" />
+    <Compile Include="ExamUI\DAL\ExamCommentHelper.cs" />
+    <Compile Include="ExamUI\DAL\OLExamComment.cs" />
+    <Compile Include="ConfigureUI\AlevelPaperConfiguration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigureUI\AlevelPaperConfiguration.Designer.cs">
+      <DependentUpon>AlevelPaperConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentsUI\AssignSubjectsAL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentsUI\AssignSubjectsAL.Designer.cs">
+      <DependentUpon>AssignSubjectsAL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\RoleFeature.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setting\RoleFeature.Designer.cs">
+      <DependentUpon>RoleFeature.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClassUI\StudentTransfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClassUI\StudentTransfer.Designer.cs">
+      <DependentUpon>StudentTransfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentsUI\AssignSubjectsOL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentsUI\AssignSubjectsOL.Designer.cs">
+      <DependentUpon>AssignSubjectsOL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigureUI\NextTermBeginsOn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigureUI\NextTermBeginsOn.Designer.cs">
+      <DependentUpon>NextTermBeginsOn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigureUI\OlevelPaper_config.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigureUI\OlevelPaper_config.Designer.cs">
+      <DependentUpon>OlevelPaper_config.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\frmLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\frmLicense.Designer.cs">
+      <DependentUpon>frmLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportData\Academic\ReportAllStudentsGradeDetails.cs" />
+    <Compile Include="ReportData\Academic\ReportClassResultHelper.cs" />
+    <Compile Include="ReportData\Academic\ReportExamResultsAllStudents.cs" />
+    <Compile Include="ReportData\Academic\ReportExamResultsAllStudentsAL.cs" />
+    <Compile Include="ReportData\Academic\ReportExamResultsAllStudentsOneSubject.cs" />
+    <Compile Include="ReportData\Academic\ReportExamResultsAllStudentsOneSubjectAL.cs" />
+    <Compile Include="ReportData\Academic\ReportExamResultsAllSubjects.cs" />
+    <Compile Include="ReportData\Academic\ReportExamResultsSessionDetails.cs" />
+    <Compile Include="ReportData\Academic\ReportExamResultsSummary.cs" />
+    <Compile Include="ReportData\Academic\ReportExamResultsTermDetails.cs" />
+    <Compile Include="ReportData\Academic\ReportExamResultsTermDetailsAL.cs" />
+    <Compile Include="ReportData\Academic\ReportExamSessionDetails.cs" />
+    <Compile Include="ReportData\Academic\ReportExamTermDetails.cs" />
+    <Compile Include="ReportData\Academic\ReportGradeDetails.cs" />
+    <Compile Include="ReportData\Academic\ReportGradeAnalysisHelper.cs" />
+    <Compile Include="ReportData\Academic\ReportPerfChange.cs" />
+    <Compile Include="ReportData\Academic\ReportSchoolDetails.cs" />
+    <Compile Include="ReportData\Academic\ReportStudentDetails.cs" />
+    <Compile Include="ReportData\Academic\ReportSubjectAnalysisHelper.cs" />
+    <Compile Include="ReportData\Academic\ReportSubjectWiseClassResultHelper.cs" />
+    <Compile Include="ReportData\Academic\ReportTeacherAnalysisHelper.cs" />
+    <Compile Include="ReportData\Academic\ReportTeacherDetails.cs" />
+    <Compile Include="ReportData\Fees\ReportFeesInvoiceDetails.cs" />
+    <Compile Include="ReportData\Fees\ReportFeesPayment.cs" />
+    <Compile Include="Reports\Academic\Controls\ALevelReportCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\Academic\Controls\ALevelReportCard.designer.cs">
+      <DependentUpon>ALevelReportCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Academic\Controls\ClassWiseReportCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\Academic\Controls\ClassWiseReportCard.designer.cs">
+      <DependentUpon>ClassWiseReportCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Academic\Controls\OLevelReportCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\Academic\Controls\OLevelReportCard.designer.cs">
+      <DependentUpon>OLevelReportCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Academic\Controls\PerformanceAnalysis.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\Academic\Controls\PerformanceAnalysis.designer.cs">
+      <DependentUpon>PerformanceAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Academic\Controls\SubjectWiseReportCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\Academic\Controls\SubjectWiseReportCard.designer.cs">
+      <DependentUpon>SubjectWiseReportCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Academic\Controls\UCExam.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\Academic\Controls\UCExam.designer.cs">
+      <DependentUpon>UCExam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportData\Academic\ReportExamHelper.cs" />
+    <Compile Include="ReportData\Academic\ReportResultHelper.cs" />
+    <Compile Include="ReportData\Academic\ReportGradeHelper.cs" />
+    <Compile Include="ReportData\Academic\ReportSchoolHelper.cs" />
+    <Compile Include="ReportData\Academic\ReportStudentHelper.cs" />
+    <Compile Include="Reports\Academic\Controls\UCLExam.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\Academic\Controls\UCLExam.designer.cs">
+      <DependentUpon>UCLExam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PerformanceAnalysis.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\PerformanceAnalysis.Designer.cs">
+      <DependentUpon>PerformanceAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StaffUI\StaffContacts.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StaffUI\StaffContacts.Designer.cs">
+      <DependentUpon>StaffContacts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtrasUI\DisciplineUI\StudentsSuspensions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExtrasUI\DisciplineUI\StudentsSuspensions.Designer.cs">
+      <DependentUpon>StudentsSuspensions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtrasUI\Timetable\ActivitiesTimeTable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExtrasUI\Timetable\ActivitiesTimeTable.Designer.cs">
+      <DependentUpon>ActivitiesTimeTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentsUI\UNEB-info.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StudentsUI\UNEB-info.Designer.cs">
+      <DependentUpon>UNEB-info.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\PasswordReset.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User\PasswordReset.Designer.cs">
+      <DependentUpon>PasswordReset.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\ResetPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\ResetPassword.designer.cs">
+      <DependentUpon>ResetPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\UseEntry.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User\UseEntry.Designer.cs">
+      <DependentUpon>UseEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtrasUI\DisciplineUI\StudentsPassouts.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExtrasUI\DisciplineUI\StudentsPassouts.Designer.cs">
+      <DependentUpon>StudentsPassouts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Access_levelDataAdapter.cs" />
+    <Compile Include="Data\AdmissionsDataAdapter.cs" />
+    <Compile Include="Data\AlertremindersDataAdapter.cs" />
+    <Compile Include="Data\Alevel_gsettingsDataAdapter.cs" />
+    <Compile Include="Data\AllowancesDataAdapter.cs" />
+    <Compile Include="Data\BooksDataAdapter.cs" />
+    <Compile Include="Data\Books_takenbystudsDataAdapter.cs" />
+    <Compile Include="Data\Book_copiesDataAdapter.cs" />
+    <Compile Include="Data\Books_takenbystaffDataAdapter.cs" />
+    <Compile Include="Data\ClassEnrollmentsDataAdapter.cs" />
+    <Compile Include="Data\ClassesDataAdapter.cs" />
+    <Compile Include="Data\ClassheadsDataAdpters.cs" />
+    <Compile Include="Data\Class_streamsDataAdapters.cs" />
+    <Compile Include="Data\DepartmentsDataAdapter.cs" />
+    <Compile Include="Data\Department_headsDataAdapter.cs" />
+    <Compile Include="Data\DormitryDataAdapter.cs" />
+    <Compile Include="Data\Dormitry_allocationsDataAdapter.cs" />
+    <Compile Include="Data\ExamsDataAdapter.cs" />
+    <Compile Include="Data\Exam_session_settingsDataAdapter.cs" />
+    <Compile Include="Data\ExpulsionsDataAdapter.cs" />
+    <Compile Include="Data\Fees_paymentsDataAdapter.cs" />
+    <Compile Include="Data\Fees_structureDataAdapter.cs" />
+    <Compile Include="Data\Fired_staffDataAdapter.cs" />
+    <Compile Include="Data\Func_requirementsDataAdapter.cs" />
+    <Compile Include="Data\Olevel_gsettingsDataAdapter.cs" />
+    <Compile Include="Data\HodsDataAdapter.cs" />
+    <Compile Include="Data\LevelsDataAdapter.cs" />
+    <Compile Include="Data\MddDataAdapter.cs" />
+    <Compile Include="Data\ParentsDataAdapter.cs" />
+    <Compile Include="Data\PassoutsDataAdapter.cs" />
+    <Compile Include="Data\Ps_relationsDataAdapter.cs" />
+    <Compile Include="Data\ExamResultsDataAdapter.cs" />
+    <Compile Include="Data\Books_returnedDataAdapter.cs" />
+    <Compile Include="Data\School_detailsDataAdapter.cs" />
+    <Compile Include="Data\School_headsDataAdapter.cs" />
+    <Compile Include="Data\StaffDataAdapter.cs" />
+    <Compile Include="Data\Staff_attendancesDataAdapter.cs" />
+    <Compile Include="Data\Staff_leavesDataAdapter.cs" />
+    <Compile Include="Data\staff_payrollDataAdapter.cs" />
+    <Compile Include="Data\Stathletics_allocationDataAdapter.cs" />
+    <Compile Include="Data\Stchoir_allocationDataAdapter.cs" />
+    <Compile Include="Data\Stclub_allocationsDataAdapter.cs" />
+    <Compile Include="Data\StudentclubsDataAdapter.cs" />
+    <Compile Include="Data\StudentleadersDataAdapter.cs" />
+    <Compile Include="Data\StudentsDataAdapter.cs" />
+    <Compile Include="Data\Student_signaturesDataAdapter.cs" />
+    <Compile Include="Data\Student_athleticsDataAdapters.cs" />
+    <Compile Include="Data\Student_attendancesDataAdpter.cs" />
+    <Compile Include="Data\Subjects_alevelDataAdapter.cs" />
+    <Compile Include="Data\Subject_enrolmentsDataAdapter.cs" />
+    <Compile Include="Data\SubjectsDataAdapter.cs" />
+    <Compile Include="Data\SuppliersDataAdapter.cs" />
+    <Compile Include="Data\suppliesDataAdapter.cs" />
+    <Compile Include="Data\SuspensionsDataAdapter.cs" />
+    <Compile Include="Data\System_settingDataAdapter.cs" />
+    <Compile Include="Data\Teacher_allocationDataAdapter.cs" />
+    <Compile Include="Data\TimetablesDataAdapter.cs" />
+    <Compile Include="Data\Timet_schedulesDataAdpter.cs" />
+    <Compile Include="Data\Time_tableactivityDataAdapter.cs" />
+    <Compile Include="Data\UsersDataAdapter.cs" />
+    <Compile Include="Data\User_activity_logDataAdapter.cs" />
+    <Compile Include="Data\Week_daysDataAdapter.cs" />
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\AccessLevels.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setting\AccessLevels.Designer.cs">
+      <DependentUpon>AccessLevels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExamUI\Alevel_gradesSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExamUI\Alevel_gradesSettings.Designer.cs">
+      <DependentUpon>Alevel_gradesSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigureUI\Alevel_subjects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigureUI\Alevel_subjects.Designer.cs">
+      <DependentUpon>Alevel_subjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentsUI\AllocateStudentClub.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentsUI\AllocateStudentClub.Designer.cs">
+      <DependentUpon>AllocateStudentClub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClassUI\AllocateTeachers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClassUI\AllocateTeachers.Designer.cs">
+      <DependentUpon>AllocateTeachers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentsUI\AssignMdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentsUI\AssignMdd.Designer.cs">
+      <DependentUpon>AssignMdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentsUI\AssignSport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentsUI\AssignSport.Designer.cs">
+      <DependentUpon>AssignSport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClassUI\ClassStreams.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClassUI\ClassStreams.Designer.cs">
+      <DependentUpon>ClassStreams.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClassUI\ClassTeachers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClassUI\ClassTeachers.Designer.cs">
+      <DependentUpon>ClassTeachers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExamUI\Olevel_gradesSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExamUI\Olevel_gradesSettings.Designer.cs">
+      <DependentUpon>Olevel_gradesSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Alert\EmailMessageTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alert\EmailMessageTemplate.Designer.cs">
+      <DependentUpon>EmailMessageTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StaffUI\EndStaffContract.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StaffUI\EndStaffContract.Designer.cs">
+      <DependentUpon>EndStaffContract.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExamUI\Exam_sessionControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExamUI\Exam_sessionControl.Designer.cs">
+      <DependentUpon>Exam_sessionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FeeStructure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FeeStructure.Designer.cs">
+      <DependentUpon>FeeStructure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigureUI\NewClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigureUI\NewClass.Designer.cs">
+      <DependentUpon>NewClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigureUI\NewDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigureUI\NewDepartment.Designer.cs">
+      <DependentUpon>NewDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtrasUI\DormMgtUI\NewDomitry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExtrasUI\DormMgtUI\NewDomitry.Designer.cs">
+      <DependentUpon>NewDomitry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExamUI\NewExam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExamUI\NewExam.designer.cs">
+      <DependentUpon>NewExam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigureUI\NewLevel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigureUI\NewLevel.Designer.cs">
+      <DependentUpon>NewLevel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigureUI\NewSubjects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigureUI\NewSubjects.Designer.cs">
+      <DependentUpon>NewSubjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StaffUI\Nonteaching_Staffleaders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StaffUI\Nonteaching_Staffleaders.Designer.cs">
+      <DependentUpon>Nonteaching_Staffleaders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigureUI\SchoolDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigureUI\SchoolDetails.Designer.cs">
+      <DependentUpon>SchoolDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Alert\SmsMessageTemplatess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alert\SmsMessageTemplatess.Designer.cs">
+      <DependentUpon>SmsMessageTemplatess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StaffUI\StaffAllowances.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StaffUI\StaffAllowances.Designer.cs">
+      <DependentUpon>StaffAllowances.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StaffUI\Staff_Leave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StaffUI\Staff_Leave.Designer.cs">
+      <DependentUpon>Staff_Leave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StaffUI\Staff_payRoll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StaffUI\Staff_payRoll.Designer.cs">
+      <DependentUpon>Staff_payRoll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigureUI\StudentAthletics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigureUI\StudentAthletics.Designer.cs">
+      <DependentUpon>StudentAthletics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtrasUI\StudLeadershipUI\StudentLeadership.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExtrasUI\StudLeadershipUI\StudentLeadership.Designer.cs">
+      <DependentUpon>StudentLeadership.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigureUI\StudentsClubs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigureUI\StudentsClubs.Designer.cs">
+      <DependentUpon>StudentsClubs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigureUI\StudentsMdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigureUI\StudentsMdd.Designer.cs">
+      <DependentUpon>StudentsMdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtrasUI\DormMgtUI\Student_dormitry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExtrasUI\DormMgtUI\Student_dormitry.Designer.cs">
+      <DependentUpon>Student_dormitry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StaffUI\TeachingStaff_leaders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StaffUI\TeachingStaff_leaders.Designer.cs">
+      <DependentUpon>TeachingStaff_leaders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigureUI\Time_SchdulesController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigureUI\Time_SchdulesController.Designer.cs">
+      <DependentUpon>Time_SchdulesController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\Week_daysController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setting\Week_daysController.Designer.cs">
+      <DependentUpon>Week_daysController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\welcome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\welcome.Designer.cs">
+      <DependentUpon>welcome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="holdme_Class.cs" />
+    <Compile Include="Model\Connectoperations.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\AccountsPayable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\AccountsPayable.Designer.cs">
+      <DependentUpon>AccountsPayable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\AccountsReceivable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\AccountsReceivable.Designer.cs">
+      <DependentUpon>AccountsReceivable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtrasUI\Timetable\ActivityTimetable_view.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExtrasUI\Timetable\ActivityTimetable_view.Designer.cs">
+      <DependentUpon>ActivityTimetable_view.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportCardAlevel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportCardAlevel.Designer.cs">
+      <DependentUpon>ReportCardAlevel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\AssetsReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\AssetsReport.Designer.cs">
+      <DependentUpon>AssetsReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BalanceSheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\BalanceSheet.Designer.cs">
+      <DependentUpon>BalanceSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ClassesAndGrades.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\ClassesAndGrades.Designer.cs">
+      <DependentUpon>ClassesAndGrades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtrasUI\Timetable\ClassWiseTimetable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExtrasUI\Timetable\ClassWiseTimetable.Designer.cs">
+      <DependentUpon>ClassWiseTimetable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ClassWiseMarkSheets.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\ClassWiseMarkSheets.Designer.cs">
+      <DependentUpon>ClassWiseMarkSheets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtrasUI\Timetable\GeneralSchoolTimeTable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExtrasUI\Timetable\GeneralSchoolTimeTable.Designer.cs">
+      <DependentUpon>GeneralSchoolTimeTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IncomeStatement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\IncomeStatement.Designer.cs">
+      <DependentUpon>IncomeStatement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IncomeStatementReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\IncomeStatementReport.Designer.cs">
+      <DependentUpon>IncomeStatementReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\JournalReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\JournalReport.Designer.cs">
+      <DependentUpon>JournalReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\LiabilitiesReports.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\LiabilitiesReports.Designer.cs">
+      <DependentUpon>LiabilitiesReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MainReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\MainReport.Designer.cs">
+      <DependentUpon>MainReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\NonStaffAttendance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\NonStaffAttendance.Designer.cs">
+      <DependentUpon>NonStaffAttendance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PastYearReports.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\PastYearReports.Designer.cs">
+      <DependentUpon>PastYearReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SingleClassPerformance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\SingleClassPerformance.Designer.cs">
+      <DependentUpon>SingleClassPerformance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportCardOlevel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportCardOlevel.Designer.cs">
+      <DependentUpon>ReportCardOlevel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\StreamPerformance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\StreamPerformance.Designer.cs">
+      <DependentUpon>StreamPerformance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\StudentAttendance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\StudentAttendance.Designer.cs">
+      <DependentUpon>StudentAttendance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SubjectWiseSheets.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\SubjectWiseSheets.Designer.cs">
+      <DependentUpon>SubjectWiseSheets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtrasUI\Timetable\TeacherWise_TimeTable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExtrasUI\Timetable\TeacherWise_TimeTable.Designer.cs">
+      <DependentUpon>TeacherWise_TimeTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="School Fees\DAL\clsFeesInvoice.cs" />
+    <Compile Include="School Fees\DAL\clsFeesPayments.cs" />
+    <Compile Include="School Fees\DAL\clsFeesStructure.cs" />
+    <Compile Include="School Fees\DAL\clsFeesStudents.cs" />
+    <Compile Include="School Fees\DAL\clsFeesType.cs" />
+    <Compile Include="School Fees\DAL\clsFeesReportStudent.cs" />
+    <Compile Include="School Fees\frmFeesReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="School Fees\frmFeesReceipt.Designer.cs">
+      <DependentUpon>frmFeesReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="School Fees\frmFeesStructures.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="School Fees\frmFeesStructures.Designer.cs">
+      <DependentUpon>frmFeesStructures.cs</DependentUpon>
+    </Compile>
+    <Compile Include="School Fees\frmFeesTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="School Fees\frmFeesTypes.Designer.cs">
+      <DependentUpon>frmFeesTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Fees\Controls\ucFeesReports.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\Fees\Controls\ucFeesReports.Designer.cs">
+      <DependentUpon>ucFeesReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="School Fees\ucFeesPayment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="School Fees\ucFeesPayment.Designer.cs">
+      <DependentUpon>ucFeesPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="School Fees\ucFeesInvoice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="School Fees\ucFeesInvoice.Designer.cs">
+      <DependentUpon>ucFeesInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="schulex_dbDataSet.cs">
+      <DependentUpon>schulex_dbDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="schulex_dbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>schulex_dbDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\AppHelper.cs" />
+    <Compile Include="Utility\ImageHelper.cs" />
+    <Compile Include="Utility\NumberHelper.cs" />
+    <Compile Include="Utility\SchulExInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Utility\SchulExInstaller.Designer.cs">
+      <DependentUpon>SchulExInstaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\ValidationHelper.cs" />
+    <EmbeddedResource Include="ClassUI\ClassStreamsConfig.resx">
+      <DependentUpon>ClassStreamsConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClassUI\FrmArchiveStudents.resx">
+      <DependentUpon>FrmArchiveStudents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClassUI\FrmClassSubjectsAL.resx">
+      <DependentUpon>FrmClassSubjectsAL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClassUI\FrmClassSubjectsOL.resx">
+      <DependentUpon>FrmClassSubjectsOL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClassUI\TransferStudsFromStreamToStream.resx">
+      <DependentUpon>TransferStudsFromStreamToStream.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClassUI\UcStudentStreamAssign.resx">
+      <DependentUpon>UcStudentStreamAssign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigureUI\CurrentTermAndAcademicYear.resx">
+      <DependentUpon>CurrentTermAndAcademicYear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigureUI\FrmContinents.resx">
+      <DependentUpon>FrmContinents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigureUI\FrmCountries.resx">
+      <DependentUpon>FrmCountries.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigureUI\FrmDefaultCurrency.resx">
+      <DependentUpon>FrmDefaultCurrency.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigureUI\FrmDistricts.resx">
+      <DependentUpon>FrmDistricts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigureUI\FrmGuardianRelationships.resx">
+      <DependentUpon>FrmGuardianRelationships.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigureUI\FrmPaymodes.resx">
+      <DependentUpon>FrmPaymodes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigureUI\FrmRegions.resx">
+      <DependentUpon>FrmRegions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigureUI\FrmSchoolJobs.resx">
+      <DependentUpon>FrmSchoolJobs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigureUI\FrmTribes.resx">
+      <DependentUpon>FrmTribes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigureUI\StudyTerms.resx">
+      <DependentUpon>StudyTerms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\AlevelTeachersComments.resx">
+      <DependentUpon>AlevelTeachersComments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\BookSearch.resx">
+      <DependentUpon>BookSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ClassWiseResults.resx">
+      <DependentUpon>ClassWiseResults.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ClassWiseResultsAlevel.resx">
+      <DependentUpon>ClassWiseResultsAlevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\FeesCollection.resx">
+      <DependentUpon>FeesCollection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MontiorAttendance.resx">
+      <DependentUpon>MontiorAttendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\NewAdmission.resx">
+      <DependentUpon>NewAdmission.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\NewLibrary.resx">
+      <DependentUpon>NewLibrary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\NewStudent.resx">
+      <DependentUpon>NewStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\OlevelTeachers_comments.resx">
+      <DependentUpon>OlevelTeachers_comments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ParentsContacts.resx">
+      <DependentUpon>ParentsContacts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SchoolFees.resx">
+      <DependentUpon>SchoolFees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SearchNonteachers.resx">
+      <DependentUpon>SearchNonteachers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SearchParents.resx">
+      <DependentUpon>SearchParents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SearchStudents.resx">
+      <DependentUpon>SearchStudents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SearchTeachers.resx">
+      <DependentUpon>SearchTeachers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\StudentClass_enroll.resx">
+      <DependentUpon>StudentClass_enroll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SubjectAssign.resx">
+      <DependentUpon>SubjectAssign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SubjectsAssignAlevel.resx">
+      <DependentUpon>SubjectsAssignAlevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ViewEditfees.resx">
+      <DependentUpon>ViewEditfees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ViewEditnonTeachingstaff.resx">
+      <DependentUpon>ViewEditnonTeachingstaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ViewEditparents.resx">
+      <DependentUpon>ViewEditparents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ViewEditstudents.resx">
+      <DependentUpon>ViewEditstudents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ViewEditteachers.resx">
+      <DependentUpon>ViewEditteachers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExamUI\ExternalExamsUI\FrmExternalexaminingBodies.resx">
+      <DependentUpon>FrmExternalexaminingBodies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExamUI\ExternalExamsUI\NewExternalExam.resx">
+      <DependentUpon>NewExternalExam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExamUI\ExternalExamsUI\UCExternalExamsMarkEntryAL.resx">
+      <DependentUpon>UCExternalExamsMarkEntryAL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExamUI\ExternalExamsUI\UCExternalExamsMarkEntryOL.resx">
+      <DependentUpon>UCExternalExamsMarkEntryOL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExtrasUI\DisciplineUI\FrmOffensesCategories.resx">
+      <DependentUpon>FrmOffensesCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExtrasUI\DormMgtUI\DormStudLeaders.resx">
+      <DependentUpon>DormStudLeaders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExtrasUI\SMS\FrmContactGroup.resx">
+      <DependentUpon>FrmContactGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExtrasUI\SMS\FrmMessageCategories.resx">
+      <DependentUpon>FrmMessageCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExtrasUI\SMS\UCscheduleSms.resx">
+      <DependentUpon>UCscheduleSms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExtrasUI\SMS\UCsendSMS.resx">
+      <DependentUpon>UCsendSMS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExtrasUI\SMS\UCsmsReports.resx">
+      <DependentUpon>UCsmsReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExtrasUI\SMS\UC_ManageContactList.resx">
+      <DependentUpon>UC_ManageContactList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExtrasUI\StudLeadershipUI\FrmStudLeadershipTitles.resx">
+      <DependentUpon>FrmStudLeadershipTitles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExtrasUI\StudLeadershipUI\UCstudentCertificates.resx">
+      <DependentUpon>UCstudentCertificates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddingStudentsAdmission.resx">
+      <DependentUpon>AddingStudentsAdmission.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AdminSettings.resx">
+      <DependentUpon>AdminSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AllocateTeachersAlevel.resx">
+      <DependentUpon>AllocateTeachersAlevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AssignSubjects.resx">
+      <DependentUpon>AssignSubjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AssignSubjectsAlevel.resx">
+      <DependentUpon>AssignSubjectsAlevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BasicSettings.resx">
+      <DependentUpon>BasicSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BookDetails.resx">
+      <DependentUpon>BookDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ChangeLogin.resx">
+      <DependentUpon>ChangeLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ClassEnrollment.resx">
+      <DependentUpon>ClassEnrollment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\Config_Form.resx">
+      <DependentUpon>Config_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ExpertSettings.resx">
+      <DependentUpon>ExpertSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GeneralStaff_leaders.resx">
+      <DependentUpon>GeneralStaff_leaders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reminders.resx">
+      <DependentUpon>Reminders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReturnBook.resx">
+      <DependentUpon>ReturnBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Schulex Dashboard.resx">
+      <DependentUpon>Schulex Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigureUI\StudySections.resx">
+      <DependentUpon>StudySections.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StudyTerm.resx">
+      <DependentUpon>StudyTerm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TeacherSubject.resx">
+      <DependentUpon>TeacherSubject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserAction.resx">
+      <DependentUpon>UserAction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ViewMyProfile.resx">
+      <DependentUpon>ViewMyProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Account\frmChangePassword.resx">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Account\UcDashboardSummary.resx">
+      <DependentUpon>UcDashboardSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParentsUI\ManageParents.resx">
+      <DependentUpon>ManageParents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParentsUI\ParentGatePass.resx">
+      <DependentUpon>ParentGatePass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParentsUI\ParentStudent.resx">
+      <DependentUpon>ParentStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExtrasUI\Library\BookNew_Copy.resx">
+      <DependentUpon>BookNew_Copy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExamUI\PerfCommentsAlevel.resx">
+      <DependentUpon>PerfCommentsAlevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParentsUI\RDLC\ParentGatePass.rdlc" />
+    <EmbeddedResource Include="ParentsUI\RDLC\ParentID.rdlc" />
+    <EmbeddedResource Include="ParentsUI\ParentIDCrad.resx">
+      <DependentUpon>ParentIDCrad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParentsUI\Student_assignParent.resx">
+      <DependentUpon>Student_assignParent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExtrasUI\Library\NewBook_Copy.resx">
+      <DependentUpon>NewBook_Copy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParentsUI\UcCreateParentsID.resx">
+      <DependentUpon>UcCreateParentsID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParentsUI\UCParentsIdHistory.resx">
+      <DependentUpon>UCParentsIdHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParentsUI\UCparentsVisitsHistory.resx">
+      <DependentUpon>UCparentsVisitsHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParentsUI\UCparentVisitsEntry.resx">
+      <DependentUpon>UCparentVisitsEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffUI\FrmOperatingSchAdmins.resx">
+      <DependentUpon>FrmOperatingSchAdmins.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffUI\ManageSchoolDirectors.resx">
+      <DependentUpon>ManageSchoolDirectors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffUI\ManageStaff.resx">
+      <DependentUpon>ManageStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffUI\RDLC\StaffID.rdlc" />
+    <EmbeddedResource Include="StaffUI\StaffIDCrad.resx">
+      <DependentUpon>StaffIDCrad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffUI\Uc_activeStaffList.resx">
+      <DependentUpon>Uc_activeStaffList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffUI\Uc_createStaffID.resx">
+      <DependentUpon>Uc_createStaffID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffUI\UC_StaffIDHistory.resx">
+      <DependentUpon>UC_StaffIDHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentsUI\FrmBulkStudentsUpdate.resx">
+      <DependentUpon>FrmBulkStudentsUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentsUI\ManageStudents.resx">
+      <DependentUpon>ManageStudents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExamUI\PerfCommentsOlevel.resx">
+      <DependentUpon>PerfCommentsOlevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExamUI\ResultsClassWiseOlevel.resx">
+      <DependentUpon>ResultsClassWiseOlevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExamUI\ResultsClassWiseAlevel.resx">
+      <DependentUpon>ResultsClassWiseAlevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExamUI\ResultsStudentWiseOlevel.resx">
+      <DependentUpon>ResultsStudentWiseOlevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExamUI\ResultsStudentWiseAlevel.resx">
+      <DependentUpon>ResultsStudentWiseAlevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attendance\AllStudentsAttendanceReport.resx">
+      <DependentUpon>AllStudentsAttendanceReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExtrasUI\Library\AvailableBooks.resx">
+      <DependentUpon>AvailableBooks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentsUI\StudentIDCrad.resx">
+      <DependentUpon>StudentIDCrad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentsUI\RDLC\StudentID.rdlc" />
+    <EmbeddedResource Include="ExtrasUI\Timetable\ExamTimeTable.resx">
+      <DependentUpon>ExamTimeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExtrasUI\Library\HiredBooks.resx">
+      <DependentUpon>HiredBooks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attendance\IndividualStaffAttendance.resx">
+      <DependentUpon>IndividualStaffAttendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attendance\IndividualStudentsAttendance.resx">
+      <DependentUpon>IndividualStudentsAttendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExtrasUI\Library\IssueBookOutStaff.resx">
+      <DependentUpon>IssueBookOutStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExtrasUI\Library\IssueBookOutStud.resx">
+      <DependentUpon>IssueBookOutStud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExtrasUI\Library\NewBook.resx">
+      <DependentUpon>NewBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExtrasUI\Library\ReturningAbook.resx">
+      <DependentUpon>ReturningAbook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentsUI\SchoolAlumnis.resx">
+      <DependentUpon>SchoolAlumnis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffUI\SearchStaff.resx">
+      <DependentUpon>SearchStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffUI\SearchTeacher.resx">
+      <DependentUpon>SearchTeacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attendance\StaffAttendance.resx">
+      <DependentUpon>StaffAttendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attendance\StaffAttendanceReport.resx">
+      <DependentUpon>StaffAttendanceReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\StaffI-cardinfo.resx">
+      <DependentUpon>StaffI-cardinfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attendance\StudentAttendances.resx">
+      <DependentUpon>StudentAttendances.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExtrasUI\Timetable\LessonsTimetable.resx">
+      <DependentUpon>LessonsTimetable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffUI\NewStaff.resx">
+      <DependentUpon>NewStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentsUI\UcCreateStudentID.resx">
+      <DependentUpon>UcCreateStudentID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentsUI\UcIdentityCardHistory.resx">
+      <DependentUpon>UcIdentityCardHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentsUI\UcListOfActiveStudents.resx">
+      <DependentUpon>UcListOfActiveStudents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentsUI\UcListOfArchivedStudents.resx">
+      <DependentUpon>UcListOfArchivedStudents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentsUI\UcStudentAdmissionLetters.resx">
+      <DependentUpon>UcStudentAdmissionLetters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentsUI\UCstudentsAdmissionsHistory.resx">
+      <DependentUpon>UCstudentsAdmissionsHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentsUI\UcStudentsPhotos.resx">
+      <DependentUpon>UcStudentsPhotos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentsUI\UcStudPopSumary.resx">
+      <DependentUpon>UcStudPopSumary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolsUI\BulkImportUIs\UcMarksEntryBulkImportXLui.resx">
+      <DependentUpon>UcMarksEntryBulkImportXLui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolsUI\BulkImportUIs\UcParentsBulkImportXLui.resx">
+      <DependentUpon>UcParentsBulkImportXLui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolsUI\BulkImportUIs\UcStaffBulkImportXLui.resx">
+      <DependentUpon>UcStaffBulkImportXLui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolsUI\BulkImportUIs\UcStudentsBulkImportXLui.resx">
+      <DependentUpon>UcStudentsBulkImportXLui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\NewUser.resx">
+      <DependentUpon>NewUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParentsUI\ParentsControl.resx">
+      <DependentUpon>ParentsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExtrasUI\DisciplineUI\StudentsExpulsions.resx">
+      <DependentUpon>StudentsExpulsions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentsUI\SearchStudent.resx">
+      <DependentUpon>SearchStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParentsUI\SearchParent.resx">
+      <DependentUpon>SearchParent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExamUI\UCExamSelection.resx">
+      <DependentUpon>UCExamSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigureUI\AlevelPaperConfiguration.resx">
+      <DependentUpon>AlevelPaperConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentsUI\AssignSubjectsAL.resx">
+      <DependentUpon>AssignSubjectsAL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\RoleFeature.resx">
+      <DependentUpon>RoleFeature.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClassUI\StudentTransfer.resx">
+      <DependentUpon>StudentTransfer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentsUI\AssignSubjectsOL.resx">
+      <DependentUpon>AssignSubjectsOL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigureUI\NextTermBeginsOn.resx">
+      <DependentUpon>NextTermBeginsOn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigureUI\OlevelPaper_config.resx">
+      <DependentUpon>OlevelPaper_config.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\frmLicense.resx">
+      <DependentUpon>frmLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Academic\Controls\ALevelReportCard.resx">
+      <DependentUpon>ALevelReportCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Academic\Controls\ClassWiseReportCard.resx">
+      <DependentUpon>ClassWiseReportCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Academic\Controls\OLevelReportCard.resx">
+      <DependentUpon>OLevelReportCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Academic\Controls\PerformanceAnalysis.resx">
+      <DependentUpon>PerformanceAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Academic\Controls\SubjectWiseReportCard.resx">
+      <DependentUpon>SubjectWiseReportCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Academic\Controls\UCExam.resx">
+      <DependentUpon>UCExam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Academic\Controls\UCLExam.resx">
+      <DependentUpon>UCLExam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Academic\RDLC\CWMSDetailsBASessionOL.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\CWMSDetailsBATermOL.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\CWMSDetailsBMSessionAL.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\CWMSDetailsBMSessionOL.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\CWMSDetailsBMTermAL.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\CWMSDetailsBMTermOL.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\CWMSDetailsBPSessionAL.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\CWMSDetailsBPTermAL.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\Grade_Analysis_AL_Term.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\Grade_Analysis_AL_Session.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\Grade_Analysis_OL_Term.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\ReportCardAnnualAL.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\ReportCardAnnualOL.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\ReportCardASAnnualAL.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\ReportCardASAnnualOL.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\ReportCardASSessionAL.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\ReportCardASSessionOL.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\ReportCardASTermAL.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\ReportCardASTermOL.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\ReportCardSessionAL.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\ReportCardSessionOL.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\ReportCardTermAL.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\ReportCardTermOL.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\Subject_Analysis_Agg_OL_Session.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\Subject_Analysis_Agg_OL_Term.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\Subject_Analysis_Grades_AL_Term.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\Subject_Analysis_Marks_AL_Session.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\Subject_Analysis_Marks_OL_Session.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\Subject_Analysis_Marks_AL_Term.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\Subject_Analysis_Marks_OL_Term.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\Subject_Analysis_Grades_AL_Session.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\Subject_Analysis_Points_AL_Session.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\Subject_Analysis_Points_AL_Term.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\SWMSDetailsSessionOL.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\SWMSDetailsTermAL.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\SWMSDetailsSessionAL.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\SWMSDetailsTermOL.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\Teacher_Analysis_AL_Term.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\Teacher_Analysis_AL_Session.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\Grade_Analysis_OL_Session.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\Teacher_Analysis_OL_Session.rdlc" />
+    <EmbeddedResource Include="Reports\Academic\RDLC\Teacher_Analysis_OL_Term.rdlc" />
+    <EmbeddedResource Include="Reports\PerformanceAnalysis.resx">
+      <DependentUpon>PerformanceAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffUI\StaffContacts.resx">
+      <DependentUpon>StaffContacts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExtrasUI\DisciplineUI\StudentsSuspensions.resx">
+      <DependentUpon>StudentsSuspensions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExtrasUI\Timetable\ActivitiesTimeTable.resx">
+      <DependentUpon>ActivitiesTimeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentsUI\UNEB-info.resx">
+      <DependentUpon>UNEB-info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\PasswordReset.resx">
+      <DependentUpon>PasswordReset.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\ResetPassword.resx">
+      <DependentUpon>ResetPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\UseEntry.resx">
+      <DependentUpon>UseEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExtrasUI\DisciplineUI\StudentsPassouts.resx">
+      <DependentUpon>StudentsPassouts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\AccessLevels.resx">
+      <DependentUpon>AccessLevels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExamUI\Alevel_gradesSettings.resx">
+      <DependentUpon>Alevel_gradesSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigureUI\Alevel_subjects.resx">
+      <DependentUpon>Alevel_subjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentsUI\AllocateStudentClub.resx">
+      <DependentUpon>AllocateStudentClub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClassUI\AllocateTeachers.resx">
+      <DependentUpon>AllocateTeachers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentsUI\AssignMdd.resx">
+      <DependentUpon>AssignMdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentsUI\AssignSport.resx">
+      <DependentUpon>AssignSport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClassUI\ClassStreams.resx">
+      <DependentUpon>ClassStreams.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClassUI\ClassTeachers.resx">
+      <DependentUpon>ClassTeachers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExamUI\Olevel_gradesSettings.resx">
+      <DependentUpon>Olevel_gradesSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alert\EmailMessageTemplate.resx">
+      <DependentUpon>EmailMessageTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffUI\EndStaffContract.resx">
+      <DependentUpon>EndStaffContract.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExamUI\Exam_sessionControl.resx">
+      <DependentUpon>Exam_sessionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FeeStructure.resx">
+      <DependentUpon>FeeStructure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigureUI\NewClass.resx">
+      <DependentUpon>NewClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigureUI\NewDepartment.resx">
+      <DependentUpon>NewDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExtrasUI\DormMgtUI\NewDomitry.resx">
+      <DependentUpon>NewDomitry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExamUI\NewExam.resx">
+      <DependentUpon>NewExam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigureUI\NewLevel.resx">
+      <DependentUpon>NewLevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigureUI\NewSubjects.resx">
+      <DependentUpon>NewSubjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffUI\Nonteaching_Staffleaders.resx">
+      <DependentUpon>Nonteaching_Staffleaders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigureUI\SchoolDetails.resx">
+      <DependentUpon>SchoolDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alert\SmsMessageTemplatess.resx">
+      <DependentUpon>SmsMessageTemplatess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffUI\StaffAllowances.resx">
+      <DependentUpon>StaffAllowances.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffUI\Staff_Leave.resx">
+      <DependentUpon>Staff_Leave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffUI\Staff_payRoll.resx">
+      <DependentUpon>Staff_payRoll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigureUI\StudentAthletics.resx">
+      <DependentUpon>StudentAthletics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExtrasUI\StudLeadershipUI\StudentLeadership.resx">
+      <DependentUpon>StudentLeadership.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigureUI\StudentsClubs.resx">
+      <DependentUpon>StudentsClubs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigureUI\StudentsMdd.resx">
+      <DependentUpon>StudentsMdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExtrasUI\DormMgtUI\Student_dormitry.resx">
+      <DependentUpon>Student_dormitry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffUI\TeachingStaff_leaders.resx">
+      <DependentUpon>TeachingStaff_leaders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigureUI\Time_SchdulesController.resx">
+      <DependentUpon>Time_SchdulesController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\Week_daysController.resx">
+      <DependentUpon>Week_daysController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\welcome.resx">
+      <DependentUpon>welcome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Reports\AccountsPayable.resx">
+      <DependentUpon>AccountsPayable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\AccountsReceivable.resx">
+      <DependentUpon>AccountsReceivable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExtrasUI\Timetable\ActivityTimetable_view.resx">
+      <DependentUpon>ActivityTimetable_view.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportCardAlevel.resx">
+      <DependentUpon>ReportCardAlevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\AssetsReport.resx">
+      <DependentUpon>AssetsReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BalanceSheet.resx">
+      <DependentUpon>BalanceSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ClassesAndGrades.resx">
+      <DependentUpon>ClassesAndGrades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExtrasUI\Timetable\ClassWiseTimetable.resx">
+      <DependentUpon>ClassWiseTimetable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ClassWiseMarkSheets.resx">
+      <DependentUpon>ClassWiseMarkSheets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExtrasUI\Timetable\GeneralSchoolTimeTable.resx">
+      <DependentUpon>GeneralSchoolTimeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\IncomeStatement.resx">
+      <DependentUpon>IncomeStatement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\IncomeStatementReport.resx">
+      <DependentUpon>IncomeStatementReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\JournalReport.resx">
+      <DependentUpon>JournalReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\LiabilitiesReports.resx">
+      <DependentUpon>LiabilitiesReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MainReport.resx">
+      <DependentUpon>MainReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NonStaffAttendance.resx">
+      <DependentUpon>NonStaffAttendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PastYearReports.resx">
+      <DependentUpon>PastYearReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Report1.rdlc" />
+    <EmbeddedResource Include="Reports\SingleClassPerformance.resx">
+      <DependentUpon>SingleClassPerformance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportCardOlevel.resx">
+      <DependentUpon>ReportCardOlevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\StreamPerformance.resx">
+      <DependentUpon>StreamPerformance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\StudentAttendance.resx">
+      <DependentUpon>StudentAttendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SubjectWiseSheets.resx">
+      <DependentUpon>SubjectWiseSheets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExtrasUI\Timetable\TeacherWise_TimeTable.resx">
+      <DependentUpon>TeacherWise_TimeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="School Fees\frmFeesReceipt.resx">
+      <DependentUpon>frmFeesReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="School Fees\frmFeesStructures.resx">
+      <DependentUpon>frmFeesStructures.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="School Fees\frmFeesTypes.resx">
+      <DependentUpon>frmFeesTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Fees\RDLC\TermFeePayment.rdlc" />
+    <EmbeddedResource Include="Reports\Fees\RDLC\AnnualFeePayment.rdlc" />
+    <EmbeddedResource Include="Reports\Fees\RDLC\FeeBalanceSummary.rdlc" />
+    <EmbeddedResource Include="Reports\Fees\RDLC\ClassWiseFeeBalance.rdlc" />
+    <EmbeddedResource Include="Reports\Fees\RDLC\ClassWiseFeeCollection.rdlc" />
+    <EmbeddedResource Include="Reports\Fees\RDLC\DemandNote.rdlc" />
+    <EmbeddedResource Include="School Fees\RDLC\PaymentReceipt.rdlc" />
+    <EmbeddedResource Include="Reports\Fees\Controls\ucFeesReports.resx">
+      <DependentUpon>ucFeesReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="School Fees\ucFeesPayment.resx">
+      <DependentUpon>ucFeesPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="School Fees\ucFeesInvoice.resx">
+      <DependentUpon>ucFeesInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Model\schulex_dbModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>schulex_dbModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\schulex_dbModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>schulex_dbModel.edmx</DependentUpon>
+      <LastGenOutput>schulex_dbModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Model\schulex_dbModel.edmx.diagram">
+      <DependentUpon>schulex_dbModel.edmx</DependentUpon>
+    </None>
+    <None Include="Model\schulex_dbModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>schulex_dbModel.edmx</DependentUpon>
+      <LastGenOutput>schulex_dbModel.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Schulexx.ReportData.Academic.ReportAllStudentsGradeDetails.datasource" />
+    <None Include="Properties\DataSources\Schulexx.ReportData.Academic.ReportAllStudentsGradeDetailsAL.datasource" />
+    <None Include="Properties\DataSources\Schulexx.ReportData.Academic.ReportAllStudentsGradeSummary.datasource" />
+    <None Include="Properties\DataSources\Schulexx.ReportData.Academic.ReportExamResultsAllStudentsOneSubject.datasource" />
+    <None Include="Properties\DataSources\Schulexx.ReportData.Academic.ReportExamResultsAllStudentsOneSubjectAL.datasource" />
+    <None Include="Properties\DataSources\Schulexx.ReportData.Academic.ReportExamResultsSessionDetails.datasource" />
+    <None Include="Properties\DataSources\Schulexx.ReportData.Academic.ReportExamResultsSummary.datasource" />
+    <None Include="Properties\DataSources\Schulexx.ReportData.Academic.ReportExamResultsTermDetails.datasource" />
+    <None Include="Properties\DataSources\Schulexx.ReportData.Academic.ReportExamResultsTermDetailsAL.datasource" />
+    <None Include="Properties\DataSources\Schulexx.ReportData.Academic.ReportExamSessionDetails.datasource" />
+    <None Include="Properties\DataSources\Schulexx.ReportData.Academic.ReportExamTermDetails.datasource" />
+    <None Include="Properties\DataSources\Schulexx.ReportData.Academic.ReportGradeDetails.datasource" />
+    <None Include="Properties\DataSources\Schulexx.ReportData.Academic.ReportPerfChange.datasource" />
+    <None Include="Properties\DataSources\Schulexx.ReportData.Academic.ReportSchoolDetails.datasource" />
+    <None Include="Properties\DataSources\Schulexx.ReportData.Academic.ReportStudentDetails.datasource" />
+    <None Include="Properties\DataSources\Schulexx.ReportData.Academic.ReportTeacherDetails.datasource" />
+    <None Include="Properties\DataSources\Schulexx.ReportData.Academic.ReportTeacherSubjectDetailsAL.datasource" />
+    <None Include="Properties\DataSources\Schulexx.ReportData.Academic.ReportTeacherSubjectDetailsOL.datasource" />
+    <None Include="Properties\DataSources\Schulexx.ReportData.Fees.ReportFeesInvoiceDetails.datasource" />
+    <None Include="Properties\DataSources\Schulexx.ReportData.Fees.ReportFeesPayment.datasource" />
+    <None Include="Properties\DataSources\Schulexx.ReportData.ID.ParentIDDetails.datasource" />
+    <None Include="Properties\DataSources\Schulexx.ReportData.ID.StaffIDDetails.datasource" />
+    <None Include="Properties\DataSources\Schulexx.ReportData.ID.StudentIDDetails.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="schulex_dbDataSet.xsc">
+      <DependentUpon>schulex_dbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="schulex_dbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>schulex_dbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="schulex_dbDataSet.xss">
+      <DependentUpon>schulex_dbDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Defult_Staff.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="favicon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\tuition-icon-24.png" />
+    <None Include="Resources\TutionIcon.png" />
+    <None Include="Resources\tuition-icon-24.jpg" />
+    <None Include="Resources\Students.png" />
+    <None Include="Resources\SearchIco.png" />
+    <None Include="Resources\TakeFromCamera.png" />
+    <None Include="Resources\UploadPhoto.png" />
+    <None Include="Resources\schulex-logosmall.png" />
+    <None Include="Resources\CalendarIconBetter.png" />
+    <None Include="Resources\ClockIcon.png" />
+    <None Include="Resources\BulkImport.png" />
+    <None Include="Resources\BtnNewIco.png" />
+    <None Include="Resources\saveIcon.png" />
+    <None Include="Resources\DeleteBtnIco.png" />
+    <None Include="Resources\booksInLibrary.png" />
+    <None Include="Resources\SchoolFeesPayments.png" />
+    <None Include="Resources\ParentsIcc.png" />
+    <Content Include="Resources\schulex-logo.png" />
+    <None Include="Resources\TermIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ToolsUI\DataMgtUI\" />
+    <Folder Include="ToolsUI\IDcustomizer\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
